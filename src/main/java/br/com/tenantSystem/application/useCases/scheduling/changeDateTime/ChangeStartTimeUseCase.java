@@ -1,4 +1,4 @@
-package br.com.tenantSystem.application.useCases.scheduling;
+package br.com.tenantSystem.application.useCases.scheduling.changeDateTime;
 
 public class ChangeStartTimeUseCase {
 }

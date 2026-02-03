@@ -1,4 +1,6 @@
-package br.com.tenantSystem.application.useCases.service;
+package br.com.tenantSystem.application.useCases.service.delete;
 
-public class DeleteServiceCommand {
+import java.util.UUID;
+
+public record DeleteServiceCommand(UUID serviceId) {
 }

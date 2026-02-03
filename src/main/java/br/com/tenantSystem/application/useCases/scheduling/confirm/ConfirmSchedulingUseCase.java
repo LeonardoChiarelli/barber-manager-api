@@ -1,4 +1,4 @@
-package br.com.tenantSystem.application.useCases.scheduling;
+package br.com.tenantSystem.application.useCases.scheduling.confirm;
 
 public class ConfirmSchedulingUseCase {
 }

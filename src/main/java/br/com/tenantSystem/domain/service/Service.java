@@ -26,7 +26,7 @@ public class Service {
         this.active = active;
     }
 
-    public ServiceBuilder builder() {
+    public static ServiceBuilder builder() {
         return new ServiceBuilder();
     }
 

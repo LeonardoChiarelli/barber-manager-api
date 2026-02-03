@@ -1,4 +1,6 @@
 package br.com.tenantSystem.application.useCases.scheduling.cancel;
 
-public record CancelSchedulingCommand() {
+import java.util.UUID;
+
+public record CancelSchedulingCommand(UUID schedulingId) {
 }

@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Barber {
     private final UUID id;
-    private UUID tenantId;
+    private final UUID tenantId;
     private final String name;
     private String nickname;
     private boolean active;

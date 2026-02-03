@@ -24,6 +24,7 @@ public interface SchedulingRepository {
 
     // ----- DQL -----
     List<Scheduling> findAll();
+    Optional<Scheduling> findById(UUID schedulingId);
     Optional<List<Scheduling>> findAllByBarbeId(UUID barberId);
     Optional<List<Scheduling>> findAllByTenantId(UUID tenantId);
     Optional<List<Scheduling>> findAllByServiceId(UUID serviceId);
@@ -31,6 +32,9 @@ public interface SchedulingRepository {
     Optional<List<Scheduling>> findAllByOrigin(SchedulingOrigin schedulingOrigin);
     Optional<List<Scheduling>> findAllByStatus(SchedulingStatus schedulingStatus);
     Optional<List<Scheduling>> findAllByBarberIdAndStartTimeAndEndTime(UUID barberId, LocalDateTime startTime, LocalDateTime endTime);
+    boolean existsById(UUID schedulingId);
+    boolean existsByBarberIdAndStartDate(UUID barberId, LocalDateTime startTime);
+    boolean existsByBarberIdAndEndTime(UUID schedulingId, LocalDateTime endTime);
 
 
 

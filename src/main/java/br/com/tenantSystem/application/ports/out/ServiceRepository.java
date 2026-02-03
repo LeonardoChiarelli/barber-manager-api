@@ -26,6 +26,7 @@ public interface ServiceRepository {
     List<Service> findAllActive();
     Optional<List<Service>> findAllByPrice(BigDecimal price);
     Optional<Service> findById(UUID id);
+    boolean existsByNameAndTenantId(String name, UUID tenantId);
 
     // ----- DTL -----
 
