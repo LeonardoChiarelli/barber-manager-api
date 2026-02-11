@@ -1,0 +1,5 @@
+UseCase -> Strategy (interface) {
+    - Variações de fluxo
+    - Decisão em runtime
+    - regras diferentes para cada barbearia
+}
