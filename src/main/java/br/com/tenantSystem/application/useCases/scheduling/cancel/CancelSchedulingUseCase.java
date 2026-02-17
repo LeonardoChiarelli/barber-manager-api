@@ -1,7 +1,7 @@
 package br.com.tenantSystem.application.useCases.scheduling.cancel;
 
 import br.com.tenantSystem.application.ports.out.SchedulingRepository;
-import br.com.tenantSystem.application.useCases.scheduling.exception.BusinessRules;
+import br.com.tenantSystem.application.useCases.exception.BusinessRules;
 import br.com.tenantSystem.domain.scheduling.SchedulingStatus;
 import jakarta.persistence.EntityNotFoundException;
 

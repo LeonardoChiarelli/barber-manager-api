@@ -1,6 +1,5 @@
 package br.com.tenantSystem.application.ports.out;
 
-import br.com.tenantSystem.domain.barber.Barber;
 import br.com.tenantSystem.domain.scheduling.Scheduling;
 import br.com.tenantSystem.domain.scheduling.SchedulingOrigin;
 import br.com.tenantSystem.domain.scheduling.SchedulingStatus;
@@ -31,10 +30,11 @@ public interface SchedulingRepository {
     Optional<List<Scheduling>> findAllByClientName(String clientName);
     Optional<List<Scheduling>> findAllByOrigin(SchedulingOrigin schedulingOrigin);
     Optional<List<Scheduling>> findAllByStatus(SchedulingStatus schedulingStatus);
-    Optional<List<Scheduling>> findAllByBarberIdAndStartTimeAndEndTime(UUID barberId, LocalDateTime startTime, LocalDateTime endTime);
+    boolean existsByBarberIdAndStartTimeAndEndTime(UUID barberId, LocalDateTime startTime, LocalDateTime endTime);
     boolean existsById(UUID schedulingId);
     boolean existsByBarberIdAndStartDate(UUID barberId, LocalDateTime startTime);
     boolean existsByBarberIdAndEndTime(UUID schedulingId, LocalDateTime endTime);
+    boolean existsByBarberIdAndStartTimeBetween(UUID barberId, LocalDateTime startTime, LocalDateTime endTime);
 
 
 

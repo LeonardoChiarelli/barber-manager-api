@@ -3,6 +3,7 @@ package br.com.tenantSystem.domain.scheduling;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 public class Scheduling {
@@ -16,7 +17,7 @@ public class Scheduling {
     private LocalDateTime endTime;
     private SchedulingStatus schedulingStatus;
     private final SchedulingOrigin schedulingOrigin;
-    private final String googleEventId;
+    private Optional<String> googleEventId;
     private final LocalTime createdAt;
 
     private Scheduling(UUID id,
@@ -29,9 +30,9 @@ public class Scheduling {
                        LocalDateTime endTime,
                        SchedulingStatus schedulingStatus,
                        SchedulingOrigin schedulingOrigin,
-                       String googleEventId,
+                       Optional<String> googleEventId,
                        LocalTime createdAt) {
-        if (id == null || tenantId == null || barberId == null || serviceId == null || clientName == null || clientPhone == null || startTime == null || endTime == null || schedulingStatus == null || schedulingOrigin == null || googleEventId == null || createdAt == null) {
+        if (id == null || tenantId == null || barberId == null || serviceId == null || clientName == null || clientPhone == null || startTime == null || endTime == null || schedulingStatus == null || schedulingOrigin == null || createdAt == null) {
             throw new IllegalArgumentException("All scheduling core must be provided.");
         }
 
@@ -93,7 +94,7 @@ public class Scheduling {
         return schedulingOrigin;
     }
 
-    public String getGoogleEventId() {
+    public Optional<String> getGoogleEventId() {
         return googleEventId;
     }
 
@@ -157,7 +158,7 @@ public class Scheduling {
         private LocalDateTime endTime;
         private SchedulingStatus schedulingStatus;
         private SchedulingOrigin schedulingOrigin;
-        private String googleEventId;
+        private Optional<String> googleEventId;
 
         public SchedulingBuilder tenantId(UUID tenantId) {
             this.tenantId = tenantId;
@@ -204,7 +205,7 @@ public class Scheduling {
             return this;
         }
 
-        public SchedulingBuilder googleEventId(String googleEventId) {
+        public SchedulingBuilder googleEventId(Optional<String> googleEventId) {
             this.googleEventId = googleEventId;
             return this;
         }

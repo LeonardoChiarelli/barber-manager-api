@@ -10,10 +10,11 @@ public class WorkSchedule {
     private final int weekDay;
     private LocalTime startTime;
     private LocalTime endTime;
-    private LocalTime interval;
+    private LocalTime intervalStart;
+    private LocalTime intervalEnd;
 
-    private WorkSchedule(UUID id, UUID barberId, int weekDay, LocalTime startTime, LocalTime endTime, LocalTime interval) {
-        if (id == null || barberId == null || startTime == null || endTime == null || interval == null) {
+    private WorkSchedule(UUID id, UUID barberId, int weekDay, LocalTime startTime, LocalTime endTime, LocalTime intervalStart, LocalTime intervalEnd) {
+        if (id == null || barberId == null || startTime == null || endTime == null || intervalStart == null || intervalEnd == null) {
             throw new IllegalArgumentException("All Service core must be provided.");
         }
 
@@ -22,7 +23,8 @@ public class WorkSchedule {
         this.weekDay = weekDay;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.interval = interval;
+        this.intervalStart = intervalStart;
+        this.intervalEnd = intervalEnd;
     }
 
     public static WorkScheduleBuilder builder() {
@@ -49,8 +51,12 @@ public class WorkSchedule {
         return endTime;
     }
 
-    public LocalTime getInterval() {
-        return interval;
+    public LocalTime getIntervalStart() {
+        return intervalStart;
+    }
+
+    public LocalTime getIntervalEnd() {
+        return intervalEnd;
     }
 
     @Override
@@ -73,8 +79,9 @@ public class WorkSchedule {
                 Weekdays: %d
                 StartTime: %s
                 EndTime: %s
-                Interval: %s
-                """, getId(), getBarberId(), getWeekDay(), getStartTime(), getEndTime(), getInterval());
+                Interval Start: %s
+                Interval End: %s
+                """, getId(), getBarberId(), getWeekDay(), getStartTime(), getEndTime(), getIntervalStart(), getIntervalEnd());
     }
 
     public void changeStartTime(LocalTime newStartTime) {
@@ -85,8 +92,12 @@ public class WorkSchedule {
         this.endTime = newEndTime;
     }
 
-    public void changeInterval(LocalTime newInterval) {
-        this.interval = newInterval;
+    public void changeIntervalStart(LocalTime newIntervalStart) {
+        this.intervalStart = newIntervalStart;
+    }
+
+    public void changeIntervalEnd(LocalTime newIntervalEnd) {
+        this.intervalEnd = newIntervalEnd;
     }
 
     public static class WorkScheduleBuilder {
@@ -94,7 +105,9 @@ public class WorkSchedule {
         private int weekDay;
         private LocalTime startTime;
         private LocalTime endTime;
-        private LocalTime interval;
+        private LocalTime intervalStart;
+        private LocalTime intervalEnd;
+
 
         public WorkScheduleBuilder barberId(UUID barberId) {
             this.barberId = barberId;
@@ -116,13 +129,18 @@ public class WorkSchedule {
             return this;
         }
 
-        public WorkScheduleBuilder interval(LocalTime interval) {
-            this.interval = interval;
+        public WorkScheduleBuilder intervalStart(LocalTime intervalStart) {
+            this.intervalStart = intervalStart;
+            return this;
+        }
+
+        public WorkScheduleBuilder intervalEnd(LocalTime intervalEnd) {
+            this.intervalEnd = intervalEnd;
             return this;
         }
 
         public WorkSchedule build() {
-            return new WorkSchedule(UUID.randomUUID(), barberId, weekDay, startTime, endTime, interval);
+            return new WorkSchedule(UUID.randomUUID(), barberId, weekDay, startTime, endTime, intervalStart, intervalEnd);
         }
     }
 }

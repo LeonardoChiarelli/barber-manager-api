@@ -1,4 +1,4 @@
-package br.com.tenantSystem.application.useCases.scheduling.exception;
+package br.com.tenantSystem.application.useCases.exception;
 
 public class BusinessRules extends RuntimeException {
     public BusinessRules(String message) {
